@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        #quiz {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        #result {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Quiz</h1>
+    <div id="quiz">
+        <div class="question">
+            <h3>1. Hangisi Darkin bir şampiyon değildir?</h3>
+            <div class="options">
+                <label><input type="radio" name="question1" value="a"> A) Aatrox</label>
+                <label><input type="radio" name="question1" value="b"> B) Rhaast</label>
+                <label><input type="radio" name="question1" value="c"> C) Varus</label>
+                <label><input type="radio" name="question1" value="d"> D) Azir</label>
+            </div>
+        </div>
+        <div class="question">
+            <h3>2. Ölümsüz Hisarı kim yapmıştır?</h3>
+            <div class="options">
+                <label><input type="radio" name="question2" value="a"> A) Ryze</label>
+                <label><input type="radio" name="question2" value="b"> B) Viego</label>
+                <label><input type="radio" name="question2" value="c"> C) Mordekaiser</label>
+                <label><input type="radio" name="question2" value="d"> D) Yoric</label>
+            </div>
+        </div>
+        <div class="question">
+            <h3>3. Hangisi noxuslu bir şampiyondur?</h3>
+            <div class="options">
+                <label><input type="radio" name="question3" value="a"> A) kled</label>
+                <label><input type="radio" name="question3" value="b"> B) Karma</label>
+                <label><input type="radio" name="question3" value="c"> C) Sett</label>
+                <label><input type="radio" name="question3" value="d"> D) Lux</label>
+            </div>
+        </div>
+        <button onclick="checkAnswers()">Sonuçları Kontrol Et</button>
+        <div id="result"></div>
+    </div>
+
+    <script src="quizJavaScript">
+        function checkAnswers() {
+            var answer1 = document.querySelector('input[name="question1"]:checked').value;
+            var answer2 = document.querySelector('input[name="question2"]:checked').value;
+            var answer3 = document.querySelector('input[name="question3"]:checked').value;
+            var score = 0;
+
+            if (answer1 === "d") {
+                score++;
+            }
+            if (answer2 === "c") {
+                score++;
+            }
+            if (answer3 === "a") {
+                score++;
+            }
+
+            var result = document.getElementById("result");
+            result.innerHTML = "Sonuç: " + score + " / 3 doğru cevap";
+        }
+    </script>
+</body>
+</html>
